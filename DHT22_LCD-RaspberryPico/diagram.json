@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "author": "Anonymous maker",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": 93, "left": 2.8, "attrs": {} },
+    { "type": "wokwi-pi-pico", "id": "pico", "top": -3.33, "left": -157.33, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -143.7,
+      "left": 52.2,
+      "attrs": { "temperature": "44.2", "humidity": "74.5" }
+    },
+    { "type": "wokwi-resistor", "id": "r1", "top": 3.95, "left": 0, "attrs": { "value": "1000" } },
+    { "type": "wokwi-lcd1602", "id": "lcd2", "top": -111.77, "left": 140.8, "attrs": {} },
+    { "type": "wokwi-potentiometer", "id": "pot1", "top": -39.7, "left": 479.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "pico:GP0", "$serialMonitor:RX", "", [] ],
+    [ "pico:GP1", "$serialMonitor:TX", "", [] ],
+    [ "pico:GND.5", "bb1:tn.1", "black", [ "h0" ] ],
+    [ "dht1:GND", "bb1:tn.6", "black", [ "v0" ] ],
+    [ "pico:3V3", "bb1:tp.1", "red", [ "h0" ] ],
+    [ "r1:1", "bb1:tp.2", "red", [ "v0" ] ],
+    [ "dht1:VCC", "bb1:tp.4", "red", [ "v0" ] ],
+    [ "r1:2", "bb1:6t.a", "green", [ "v0" ] ],
+    [ "pico:GP22", "bb1:6t.b", "green", [ "h0" ] ],
+    [ "dht1:SDA", "bb1:6t.e", "green", [ "v0" ] ],
+    [ "pot1:GND", "bb1:tn.25", "black", [ "v0" ] ],
+    [ "pot1:VCC", "bb1:tp.25", "red", [ "v0" ] ],
+    [ "pot1:SIG", "lcd2:V0", "magenta", [ "v0" ] ],
+    [ "lcd2:VSS", "bb1:tn.13", "black", [ "v0" ] ],
+    [ "lcd2:VDD", "bb1:tp.14", "red", [ "v0" ] ],
+    [ "lcd2:RW", "bb1:tn.16", "black", [ "v0" ] ],
+    [ "lcd2:RS", "bb1:9t.e", "green", [ "v0" ] ],
+    [ "lcd2:E", "bb1:10t.d", "green", [ "v0" ] ],
+    [ "lcd2:D4", "bb1:11t.c", "green", [ "v0" ] ],
+    [ "lcd2:D5", "bb1:12t.b", "green", [ "v0" ] ],
+    [ "lcd2:D6", "bb1:13t.a", "green", [ "v0" ] ],
+    [ "lcd2:D7", "bb1:22t.e", "green", [ "v0" ] ],
+    [ "lcd2:K", "bb1:tn.24", "black", [ "v0" ] ],
+    [ "pico:GP2", "bb1:9t.a", "#8f4814", [ "h0" ] ],
+    [ "pico:GP3", "bb1:10t.a", "orange", [ "h0" ] ],
+    [ "pico:GP4", "bb1:11t.a", "blue", [ "h0" ] ],
+    [ "pico:GP5", "bb1:12t.a", "violet", [ "h0" ] ],
+    [ "pico:GP6", "bb1:13t.b", "purple", [ "h0" ] ],
+    [ "pico:GP7", "bb1:22t.d", "yellow", [ "h0" ] ]
+  ],
+  "dependencies": {}
+}
